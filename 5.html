@@ -6,20 +6,39 @@
     <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root')
-  
-        function tick(){
-          const time = new Date().toLocaleString()
 
-          const element = 
-            <div>
-              The Current time is {time}  
-            </div>
+        function HelloTest({mytext}){
           
+         return(
+           <div>
+              {mytext}
+           </div>
+         )
+        }
+
+        function Time(){
+          const time = new Date().toLocaleTimeString()
+          return(
+          <div>
+            The Current time is {time}  
+          </div>
+          )
+          
+        }
+
+        function tick(){
+          const element = (
+            <>
+            <Time/>
+            <HelloTest mytext="Hello"></HelloTest>
+            </>
+          )
+            
           ReactDOM.render(element, rootElement)
           
         }
         tick()
-        setInterval(tick, 1000)
+        setInterval(tick(), 1000)
 
       
     </script>
